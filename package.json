@@ -1,0 +1,52 @@
+{
+  "name": "small-redux",
+  "version": "1.0.0",
+  "description": "Small implementation of Redux library",
+  "main": "./es5/index.js",
+  "module": "./es5-esm/index.js",
+  "types": "./es2015/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tslint ./src/*.ts",
+    "build": "tsc",
+    "build:es5": "tsc --target es5 --outDir ./es5-esm",
+    "build:umd": "rollup -c",
+    "build:all": "npm run build && npm run build:es5 && npm run build:umd",
+    "minify": "uglifyjs ./es5/index.js -c -m -o ./es5/redux.min.js",
+    "prepublish": "npm run lint && npm run build:all && npm run minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m18ru/small-redux.git"
+  },
+  "keywords": [
+    "small",
+    "lite",
+    "redux",
+    "reducer",
+    "state",
+    "predictable",
+    "functional",
+    "immutable",
+    "hot",
+    "live",
+    "replay",
+    "flux",
+    "elm",
+    "typescript",
+    "ts",
+    "types"
+  ],
+  "author": "Andrey Avol Volynkin <code@m18.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/m18ru/small-redux/issues"
+  },
+  "homepage": "https://github.com/m18ru/small-redux#readme",
+  "devDependencies": {
+    "rollup": "^0.41.6",
+    "tslint": "^5.1.0",
+    "typescript": "^2.2.2",
+    "uglify-js": "^2.8.22"
+  }
+}
